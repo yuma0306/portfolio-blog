@@ -1,0 +1,52 @@
+/* ストップウォッチ */
+.stopwatch {
+	background: url(../img/stopwatch.png) no-repeat left top/contain;
+	width: 480px;
+	height: 540px;
+	position: fixed;
+	inset: 0;
+	margin: auto;
+}
+
+/* ディスプレイ */
+.stopwatch__display {
+	position: absolute;
+	top: 34%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 280px;
+	height: 100px;
+	font: bold 70px / 1 "Arial";
+	white-space: nowrap;
+}
+
+/* カウント表示部 */
+.stopwatch__count {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 70px;
+}
+
+.stopwatch__ms {
+	font-size: 50px;
+}
+
+/* スタートボタン */
+.stopwatch__start {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/* リセットボタン */
+.stopwatch__reset {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
