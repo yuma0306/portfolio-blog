@@ -20,6 +20,8 @@ type contentsType = {
   title: string;
   thumb: {
     url: string;
+    height: number;
+    width: number;
   };
 };
 
@@ -27,13 +29,15 @@ type contentsType = {
 export default async function Post() {
   // 非同期処理でmicroCMSからデータ取得
   const data: dataType = await client.get({
-    endpoint: 'post', // microCMSで設定したものendpoint
+    // microCMSで設定したものendpoint
+    endpoint: 'post',
     queries: {
-      fields: 'id,title,thumb', // microCMSで設定したものフィールド
+      // microCMSで設定したものフィールド（画像はnext.config.jsにドメインを定義）
+      fields: 'id,title,thumb',
       limit: 10,
     },
   });
-  // console.log(data.contents);
+  console.log(data.contents);
   return (
     <>
       {data?.contents && (
@@ -45,11 +49,10 @@ export default async function Post() {
                 <Link className="grid gap-y-2 font-semibold text-lg" href={`/post/${value.id}`}>
                   <Image
                     className='w-full'
-                    // src='/dorango-farm.png'
                     src={value.thumb.url}
                     alt={value.title}
-                    width={330}
-                    height={330}
+                    height={value.thumb.height}
+                    width={value.thumb.width}
                   />
                   <span className="text-center">{value.title}</span>
                 </Link>
