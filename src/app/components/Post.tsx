@@ -18,7 +18,9 @@ type dataType = {
 type contentsType = {
   id: string;
   title: string;
-  url: string;
+  thumb: {
+    url: string;
+  };
 };
 
 // 非同期処理が終了するまでコンポーネントがレンダリングされないようにasync関数を使用
@@ -43,10 +45,9 @@ export default async function Post() {
                 <Link className="grid gap-y-2 font-semibold text-lg" href={`/post/${value.id}`}>
                   <Image
                     className='w-full'
-                    src='/dorango-farm.png'
+                    // src='/dorango-farm.png'
+                    src={value.thumb.url}
                     alt={value.title}
-                    // src={value.thumb.url}
-                    // alt={value.title}
                     width={330}
                     height={330}
                   />
