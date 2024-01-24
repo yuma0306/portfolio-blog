@@ -3,7 +3,6 @@
  */
 import Link from 'next/link';
 import Image from "next/image";
-import { client } from '@/lib/client';
 import Wrapper from '@/app/components/Wrapper';
 import Header from '@/app/components/Header';
 import Kv from '@/app/components/Kv';
@@ -29,15 +28,6 @@ type contentsType = {
 };
 
 export default async function Home() {
-  //microCMSからデータを取得する処理
-  const data: dataType = await client.get({
-    endpoint: 'post', //microCMSで設定したもの
-    queries: {
-      fields: 'id,title,thumb',
-      limit: 10,
-    },
-  });
-  // console.log(data.contents);
   return (
     <>
       <Wrapper>
