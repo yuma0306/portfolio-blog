@@ -1,6 +1,6 @@
-import { notFound } from "next/navigation";
-import parse from "html-react-parser";
-import { getDetail, getList } from "@/libs/microcms";
+// import parse from 'html-react-parser';
+import { notFound } from 'next/navigation';
+import { getDetail, getList } from '@/libs/microcms';
 
 // キャッシュを利用しない
 export const revalidate = 0;
@@ -30,7 +30,8 @@ export default async function StaticDetailPage({
     <div>
       <h1>{post.title}</h1>
       <h2>{time}</h2>
-      <div>{parse(post.content)}</div>
+      {/* <div>{parse(post.content)}</div> */}
+      <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
     </div>
   );
 }
