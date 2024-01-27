@@ -57,8 +57,6 @@ export default function Skills() {
           Gitコマンドを用いたチーム開発が可能
           GTM
           トリガー設定など基本的な業務が可能
-
-
         </Inner>
       </Section>
     </>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from "next/image";
+import Image from 'next/image';
 import Section from '@/app/components/Section';
 import Inner from '@/app/components/Inner';
 import HeadingLv2 from '@/app/components/HeadingLv2';
@@ -29,7 +29,7 @@ const Social = ({ icon, alt, text, link }: SocialPrpos) => {
 export default function About() {
   return (
     <>
-      <Section sectionID="about" addClass="bg-gray-50">
+      <Section sectionID='about' addClass='bg-gray-50'>
         <Inner>
           <HeadingLv2>About Me</HeadingLv2>
           <div className='flex items-center gap-10 mt-14'>
@@ -45,18 +45,19 @@ export default function About() {
                 2020年にフロントエンドエンジニアとしてキャリアをスタート。<br/>
                 Web制作を通じて、コーディング・解析・SEOなどWeb周りの基礎を身につけ、現在ではバックエンド・インフラ関連の業務まで幅広く担当するようになりました。
               </Text>
+              <Link href='/blog/'>一覧を見る</Link>
               <div className='flex gap-10 mt-8'>
                 <Social
-                  icon="/github.svg"
-                  alt="GitHubのアイコン"
-                  link="https://github.com/yuma0306"
-                  text="GitHub"
+                  icon='/github.svg'
+                  alt='GitHubのアイコン'
+                  link='https://github.com/yuma0306'
+                  text='GitHub'
                 />
                 <Social
-                  icon="/zenn.svg"
-                  alt="Zennのアイコン"
-                  link="https://zenn.dev/holy0306"
-                  text="Zenn"
+                  icon='/zenn.svg'
+                  alt='Zennのアイコン'
+                  link='https://zenn.dev/holy0306'
+                  text='Zenn'
                 />
               </div>
             </div>
