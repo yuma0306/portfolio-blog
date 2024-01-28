@@ -13,14 +13,33 @@ type Endpoint = {
 };
 const endpoints: Endpoint = {
   blog: 'blogs',
+  skill: 'skills',
 };
 
-//ブログの型定義
+// スキルの型定義
+export type Skill = {
+  id: string;
+  skillTerm: string;
+  skillDesc: string;
+  skillCategory: string;
+  skillType: {
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt?: string;
+    revisedAt?: string;
+    name: string;
+  };
+  posts: string;
+}
+
+// ブログの型定義
 export type Blog = {
   id: string;
   title: string;
   content: string;
   eyecatch?: MicroCMSImage;
+  label: string;
 } & MicroCMSDate;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
@@ -45,6 +64,15 @@ export const getList = async (queries?: MicroCMSQueries) => {
   });
   //  await new Promise((resolve) => setTimeout(resolve, 3000));
   return listData;
+};
+
+// スキル一覧を取得
+export const getSkillList = async (queries?: MicroCMSQueries) => {
+  const skillListData = await client.getList<Skill>({
+    endpoint: endpoints.skill,
+    queries,
+  });
+  return skillListData;
 };
 
 // ブログの詳細を取得

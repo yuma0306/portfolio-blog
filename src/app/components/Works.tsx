@@ -20,16 +20,16 @@ export default async function Works() {
       <Inner>
         <HeadingLv2>Works</HeadingLv2>
         <Text align='text-center'>
-            自主制作したポートフォリオを紹介しています。<br/>
-            各ポートフォリオの仕様については、詳細ページに記載しております。
-          </Text>
+          自主制作したポートフォリオを紹介しています。<br/>
+          各ポートフォリオの<span className='marker font-bold'>仕様・使用技術については、詳細ページに記載</span>しております。
+        </Text>
         <ul className='grid grid-cols-3 gap-6 mt-14'>
           {contents.map((post) => {
             // console.log(contents);
             return (
-              <li key={post.id} className='group'>
-                <Link className='grid gap-y-3 font-semibold text-lg' href={`/blog/${post.id}`}>
-                  <div className='w-full aspect-video overflow-hidden'>
+              <li key={post.id} className='relative group'>
+                <Link className='grid gap-y-3' href={`/blog/${post.id}`}>
+                  <div className='shadow-round w-full aspect-video rounded overflow-hidden'>
                     <Image
                       className='relative w-full h-full object-cover transition duration-300 group-hover:scale-125'
                       alt={post.title}
@@ -38,7 +38,8 @@ export default async function Works() {
                       width={post.eyecatch!.width}
                     />
                   </div>
-                  <p className='text-center'>{post.title}</p>
+                  <p className='font-medium text-center'>{post.title}</p>
+                  <p className='absolute top-0 left-0 px-2 py-1 text-[14px] text-white bg-[#333] rounded-br leading-0'>{post.label}</p>
                 </Link>
               </li>
             );

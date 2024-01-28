@@ -1,62 +1,115 @@
-import Link from 'next/link';
-import Image from "next/image";
 import Section from '@/app/components/Section';
 import Inner from '@/app/components/Inner';
 import HeadingLv2 from '@/app/components/HeadingLv2';
 import Text from '@/app/components/Text';
+import { getSkillList } from '@/libs/microcms';
 
-export default function Skills() {
+// キャッシュを利用しない
+export const revalidate = 0;
+
+export default async function Skills() {
+  // 上限は100
+  const { contents } = await getSkillList({ limit: 100 });
+  // console.log(contents);
+  if (!contents || contents.length === 0) {
+    return;
+  }
   return (
     <>
-      <Section sectionID='skills'>
+      <Section sectionID='skills' addClass='bg-gray-50'>
         <Inner>
           <HeadingLv2>Skills</HeadingLv2>
-          【OS】
-          Windows
-          LAMP・フロントエンド開発環境の構築が可能
-          Linux
-          Webサーバー、LAMP環境の構築が可能
-          Mac
-          LAMP・フロントエンド開発環境の構築が可能
-          【言語】
-          フレームワーク
-          ライブラリ
-          CMS
-          含む
-          PHP
-          最適なコーディングが可能
-          MySQL
-          基本的なクエリ記述が可能
-          WordPress
-          最適なコーディングが可能
-          JavaScript
-          最適なコーディングが可能
-          jQuery
-          最適なコーディングが可能
-          GoogleAppsScript
-          基本的なコーディングが可能
-          Next.js・React
-          基本的なコーディングが可能
-          HTML・Pug
-          最適なコーディングが可能
-          CSS・SCSS
-          最適なコーディング、CSS設計が可能
-          BootstrapやTailwind CSSの使用も可能
-          【ツール】
-          Photoshop
-          カンプからのコーディングに必要な操作が可能
-          Illustrator
-          カンプからのコーディングに必要な操作が可能
-          XD
-          カンプからのコーディングに必要な操作が可能
-          Figma
-          カンプからのコーディングに必要な操作が可能
-          Gulp
-          目的に合わせたタスク設計が可能
-          GitHub
-          Gitコマンドを用いたチーム開発が可能
-          GTM
-          トリガー設定など基本的な業務が可能
+          <Text align='text-center'>
+            フロントエンドのみならず、バックエンドやLinuxなどのインフラ部分まで幅広くスキルの幅を広げております。<br/>
+            対応可能な具体例とあわせてスキルセットをまとめました。
+          </Text>
+          <div className='grid grid-cols-2 gap-12 mt-14'>
+            {contents.some(post => post.skillType && post.skillType.id === 'front-end') && (
+              <dl className='relative note02 bg-white border-[3px] border-[#CD669A] rounded'>
+                <dt className='absolute top-0 left-1/2 translate-y-[-50%] translate-x-[-50%] px-3 py-1.5 text-3xl text-white bg-[#CD669A] rounded leading-0'>Front End</dt>
+                <dd className='grid gap-y-[2rem] p-[2rem]'>
+                  {contents.filter(post => post.skillType && post.skillType.id === 'front-end').map((post) =>
+                    <dl key={post.id}>
+                      <dt className='text-[18px] font-bold'>{post.skillTerm}</dt>
+                      <dd>{post.skillDesc}</dd>
+                    </dl>
+                  )}
+                </dd>
+              </dl>
+            )}
+            {contents.some(post => post.skillType && post.skillType.id === 'back-end') && (
+              <dl className='relative note02 bg-white border-[3px] border-[#7986b8] rounded'>
+                <dt className='absolute top-0 left-1/2 translate-y-[-50%] translate-x-[-50%] px-3 py-1.5 text-3xl text-white bg-[#7986b8] rounded leading-0'>Back End</dt>
+                <dd className='grid gap-y-[2rem] p-[2rem]'>
+                  {contents.filter(post => post.skillType && post.skillType.id === 'back-end').map((post) =>
+                    <dl key={post.id}>
+                      <dt className='text-[18px] font-bold'>{post.skillTerm}</dt>
+                      <dd>{post.skillDesc}</dd>
+                    </dl>
+                  )}
+                </dd>
+              </dl>
+            )}
+            {contents.some(post => post.skillType && post.skillType.id === 'tool') && (
+              <dl className='relative note02 bg-white border-[3px] border-[#8AB4F8] rounded'>
+                <dt className='absolute top-0 left-1/2 translate-y-[-50%] translate-x-[-50%] px-3 py-1.5 text-3xl text-white bg-[#8AB4F8] rounded leading-0'>Tool</dt>
+                <dd className='grid gap-y-[2rem] p-[2rem]'>
+                  {contents.filter(post => post.skillType && post.skillType.id === 'tool').map((post) =>
+                    <dl key={post.id}>
+                      <dt className='text-[18px] font-bold'>{post.skillTerm}</dt>
+                      <dd>{post.skillDesc}</dd>
+                    </dl>
+                  )}
+                </dd>
+              </dl>
+            )}
+            {contents.some(post => post.skillType && post.skillType.id === 'os-category') && (
+              <dl className='relative note02 bg-white border-[3px] border-[#F4BD0D] rounded'>
+                <dt className='absolute top-0 left-1/2 translate-y-[-50%] translate-x-[-50%] px-3 py-1.5 text-3xl text-white bg-[#F4BD0D] rounded leading-0'>OS</dt>
+                <dd className='grid gap-y-[2rem] p-[2rem]'>
+                  {contents.filter(post => post.skillType && post.skillType.id === 'os-category').map((post) =>
+                    <dl key={post.id}>
+                      <dt className='text-[18px] font-bold'>{post.skillTerm}</dt>
+                      <dd>{post.skillDesc}</dd>
+                    </dl>
+                  )}
+                </dd>
+              </dl>
+            )}
+            {contents.some(post => post.skillType && post.skillType.id === 'design') && (
+              <dl className='relative note02 bg-white border-[3px] border-[#330000] rounded'>
+                <dt className='absolute top-0 left-1/2 translate-y-[-50%] translate-x-[-50%] px-3 py-1.5 text-3xl text-white bg-[#330000] rounded leading-0'>Design</dt>
+                <dd className='grid gap-y-[2rem] p-[2rem]'>
+                  {contents.filter(post => post.skillType && post.skillType.id === 'design').map((post) =>
+                    <dl key={post.id}>
+                      <dt className='text-[18px] font-bold'>{post.skillTerm}</dt>
+                      <dd>{post.skillDesc}</dd>
+                    </dl>
+                  )}
+                </dd>
+              </dl>
+            )}
+            {
+              /*
+                ▼カテゴリでの分類
+                {contents.some(post => post.skillCategory.includes('front-end')) && (
+                  <dl className='relative note02 bg-white border-[3px] border-[#CD669A] rounded'>
+                    <dt className='absolute top-0 left-1/2 translate-y-[-50%] translate-x-[-50%] px-3 py-1.5 text-3xl text-white bg-[#CD669A] rounded leading-0'>Front End</dt>
+                    <dd className='grid gap-y-[2rem] p-[2rem]'>
+                      {contents.map((post) =>
+                        post.skillCategory.includes('front-end') && (
+                          <dl key={post.id}>
+                            <dt className='text-[18px] font-bold'>{post.skillTerm}</dt>
+                            <dd>{post.skillDesc}</dd>
+                          </dl>
+                        )
+                      )}
+                    </dd>
+                  </dl>
+                )}
+              */
+            }
+          </div>
         </Inner>
       </Section>
     </>

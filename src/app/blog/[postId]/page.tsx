@@ -29,7 +29,7 @@ export default async function StaticDetailPage({
     notFound();
   }
   return (
-    <>
+    <div className='note'>
       <h1>{post.title}</h1>
       <div
         className='
@@ -39,6 +39,6 @@ export default async function StaticDetailPage({
         dangerouslySetInnerHTML={{ __html: post.content }}
       >
       </div>
-    </>
+    </div>
   );
 }
