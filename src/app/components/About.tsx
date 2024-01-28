@@ -32,7 +32,7 @@ export default function About() {
       <Section sectionID='about' addClass='bg-gray-50'>
         <Inner>
           <HeadingLv2>About Me</HeadingLv2>
-          <div className='flex items-center w-fit mx-auto	gap-10 mt-14'>
+          <div className='flex items-center w-fit mx-auto	gap-10'>
             <Image
               className='w-1/6'
               src={'/img-lizard.png'}

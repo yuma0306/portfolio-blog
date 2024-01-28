@@ -4,7 +4,7 @@ import Inner from '@/app/components/Inner';
 
 export default function Header() {
   return (
-    <header className='py-6 px-10'>
+    <header className='bg-white py-6 px-10'>
       <Inner addClass='flex justify-between items-center'>
         <Link className='transition duration-300 hover:opacity-80' href='/'>
           <span className='text-cyan-600 font-bold text-2xl'>Uma Code</span>

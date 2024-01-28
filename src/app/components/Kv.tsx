@@ -7,7 +7,7 @@ export default function Kv() {
   return (
     <>
       <section className='relative py-40 px-4 note'>
-        <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col items-center justify-center'>
+        <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col items-center justify-center mt-[-8px]'>
           <Image
               className=''
               src={'/logo-header.svg'}

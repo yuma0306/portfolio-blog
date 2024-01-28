@@ -4,7 +4,7 @@ type Props = {
 
 export default function Wrapper({ children }: Props) {
   return (
-    <div>
+    <div className="">
       {children}
     </div>
   );
