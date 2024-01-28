@@ -1,4 +1,6 @@
 // import parse from 'html-react-parser';
+// {parse(post.content)}
+
 import { notFound } from 'next/navigation';
 import { getDetail, getList } from '@/libs/microcms';
 
@@ -27,11 +29,16 @@ export default async function StaticDetailPage({
     notFound();
   }
   return (
-    <div>
+    <>
       <h1>{post.title}</h1>
-      <h2>{time}</h2>
-      {/* <div>{parse(post.content)}</div> */}
-      <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
-    </div>
+      <div
+        className='
+          [&>h2]:p-4 [&>h2]:relative
+          [&>h3]:relative [&>h3]:p-2 [&>h3]:text-cyan-600
+        '
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      >
+      </div>
+    </>
   );
 }

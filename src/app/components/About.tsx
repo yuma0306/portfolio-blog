@@ -32,20 +32,20 @@ export default function About() {
       <Section sectionID='about' addClass='bg-gray-50'>
         <Inner>
           <HeadingLv2>About Me</HeadingLv2>
-          <div className='flex items-center gap-10 mt-14'>
+          <div className='flex items-center w-fit mx-auto	gap-10 mt-14'>
             <Image
-              className='w-1/4'
+              className='w-1/6'
               src={'/img-lizard.png'}
               alt={'プロフィールアイコン'}
-              height={200}
-              width={200}
+              height={300}
+              width={300}
             />
             <div className='flex-1'>
-              <Text>
+              <Text align='text-left'>
                 2020年にフロントエンドエンジニアとしてキャリアをスタート。<br/>
-                Web制作を通じて、コーディング・解析・SEOなどWeb周りの基礎を身につけ、現在ではバックエンド・インフラ関連の業務まで幅広く担当するようになりました。
+                Web制作を通じて、コーディング・解析・SEOなどWeb周りの基礎を身につけ、現在ではバックエンド・インフラ関連の業務まで幅広く担当するようになりました。<br/>
+                好きなことは「動物園・水族館巡り」「生き物採取」「釣り」「温泉・サウナ」「Alexa・SwitchBotを使った部屋の魔改造」など。
               </Text>
-              <Link href='/blog/'>一覧を見る</Link>
               <div className='flex gap-10 mt-8'>
                 <Social
                   icon='/github.svg'
