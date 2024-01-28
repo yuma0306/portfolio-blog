@@ -21,7 +21,7 @@ const Social = ({ icon, alt, text, link }: SocialPrpos) => {
         height={30}
         width={30}
       />
-      <Link className='underline text-cyan-600 transition duration-300 hover:opacity-80' href={link} target='_blank'>{text}</Link>
+      <Link className='underline text-cyan-600 font-medium transition duration-300 hover:opacity-80' href={link} target='_blank'>{text}</Link>
     </div>
   );
 };
@@ -34,8 +34,8 @@ export default function About() {
           <HeadingLv2>About Me</HeadingLv2>
           <div className='flex items-center w-fit mx-auto	gap-10'>
             <Image
-              className='w-1/6'
-              src={'/img-lizard.png'}
+              className='w-1/4 shadow-round rounded'
+              src={'/img-about.jpg'}
               alt={'プロフィールアイコン'}
               height={300}
               width={300}
@@ -44,7 +44,7 @@ export default function About() {
               <Text align='text-left'>
                 2020年にフロントエンドエンジニアとしてキャリアをスタート。<br/>
                 Web制作を通じて、コーディング・解析・SEOなどWeb周りの基礎を身につけ、現在ではバックエンド・インフラ関連の業務まで幅広く担当するようになりました。<br/>
-                好きなことは「動物園・水族館巡り」「生き物採取」「釣り」「温泉・サウナ」「Alexa・SwitchBotを使った部屋の魔改造」など。
+                好きなことは「動物園・水族館・牧場巡り」「生き物採取」「釣り」「エアプランツ」「温泉・サウナ」「AlexaとSwitchBotを使った部屋の魔改造」など。
               </Text>
               <div className='flex gap-10 mt-8'>
                 <Social
