@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .note {
+    background-color: #fff;
+    background-image: linear-gradient(180deg, #e5e7eb 1px, transparent 1px);
+    background-size: 100% 2.5rem;
+    line-height: 2.5rem;
+    font-size: 1rem;
+  }
+}

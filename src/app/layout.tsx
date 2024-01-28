@@ -1,12 +1,21 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+import { Noto_Sans_JP } from 'next/font/google'
+
+const notojp = Noto_Sans_JP({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'タイトル',
   description: 'ディスクリプション',
+  robots: {
+    index: false,
+  }
 }
 
 export default function RootLayout({
@@ -15,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <body className={`${inter.className} text-neutral-700`}>{children}</body>
+    <html lang='ja'>
+      <body className={`${notojp.className} text-neutral-700`}>{children}</body>
     </html>
   )
 }

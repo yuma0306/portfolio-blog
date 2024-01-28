@@ -4,6 +4,7 @@ import Section from '@/app/components/Section';
 import Inner from '@/app/components/Inner';
 import HeadingLv2 from '@/app/components/HeadingLv2';
 import LinkBtn from '@/app/components/LInkBtn';
+import Text from '@/app/components/Text';
 import { getList } from '@/libs/microcms';
 
 // キャッシュを利用しない
@@ -18,6 +19,10 @@ export default async function Works() {
     <Section sectionID='works'>
       <Inner>
         <HeadingLv2>Works</HeadingLv2>
+        <Text align='text-center'>
+            自主制作したポートフォリオを紹介しています。<br/>
+            各ポートフォリオの仕様については、詳細ページに記載しております。
+          </Text>
         <ul className='grid grid-cols-3 gap-6 mt-14'>
           {contents.map((post) => {
             // console.log(contents);
