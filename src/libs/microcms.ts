@@ -40,6 +40,7 @@ export type Blog = {
   content: string;
   eyecatch?: MicroCMSImage;
   label: string;
+  frontFlag: boolean;
 } & MicroCMSDate;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {

@@ -7,7 +7,7 @@ import Kv from '@/app/components/Kv';
 import About from '@/app/components/About';
 import Footer from '@/app/components/Footer';
 import Works from '@/app/components/Works';
-import Skills from './components/Skills';
+import Skills from '@/app/components/Skills';
 
 export default async function Home() {
   return (
