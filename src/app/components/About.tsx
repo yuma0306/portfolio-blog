@@ -32,9 +32,9 @@ export default function About() {
       <Section sectionID='about' addClass='bg-gray-50'>
         <Inner>
           <HeadingLv2>About Me</HeadingLv2>
-          <div className='flex items-center w-fit mx-auto	gap-10'>
+          <div className='flex items-center flex-col md:flex-row gap-x-10 gap-y-5 mx-auto'>
             <Image
-              className='w-1/4 shadow-round rounded'
+              className='w-fit max-w-full mx-auto shadow-round rounded'
               src={'/img-about.jpg'}
               alt={'プロフィールアイコン'}
               height={300}

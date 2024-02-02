@@ -4,8 +4,8 @@ import Inner from '@/app/components/Inner';
 
 export default function Header() {
   return (
-    <header className='bg-white py-6 px-10'>
-      <Inner addClass='flex justify-between items-center'>
+    <header className='bg-white py-4 px-5'>
+      {/* <Inner addClass='flex justify-between items-center'>
         <Link className='transition duration-300 hover:opacity-80' href='/'>
           <span className='text-cyan-600 font-bold text-2xl'>Uma Code</span>
         </Link>
@@ -16,7 +16,7 @@ export default function Header() {
           <Link className='transition duration-300 hover:text-cyan-600' href='https://github.com/yuma0306' target='_blank'>GitHub</Link>
           <Link className='transition duration-300 hover:text-cyan-600' href='https://zenn.dev/holy0306' target='_blank'>Zenn</Link>
         </div>
-      </Inner>
+      </Inner> */}
     </header>
   )
 }

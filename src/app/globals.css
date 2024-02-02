@@ -159,7 +159,7 @@
   }
   .blog-content figure {
     width: min(100%, 600px);
-    height: 22rem;
+    height: 14rem;
     margin: 2rem auto 0;
     border-radius: 4px;
     overflow: hidden;
@@ -181,5 +181,15 @@
     padding: 2rem;
     background-color: var(--yellow02);
     border-radius: 4px;
+  }
+  @media (min-width: 640px) {
+    .blog-content figure {
+      height: 20rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .blog-content figure {
+      height: 22rem;
+    }
   }
 }
