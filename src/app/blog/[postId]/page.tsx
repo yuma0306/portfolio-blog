@@ -46,7 +46,7 @@ export default async function StaticDetailPage({
               <h1 className='relative py-[2rem] text-[2rem] font-medium text-center before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-[#333]'>{post.title}</h1>
               <time className='block pr-[1rem] text-right'>更新日：{post.updatedAt.split('T')[0]}</time>
               <Image
-                className='w-[600px] max-w-full h-[14rem] sm:h-[20rem] lg:h-[22rem] mx-auto mt-[2rem] object-cover shadow-round rounded'
+                className='w-[600px] max-w-full h-[12rem] sm:h-[18rem] lg:h-[22rem] mx-auto mt-[2rem] object-cover shadow-round rounded'
                 alt={post.title}
                 src={post.eyecatch!.url}
                 height={post.eyecatch!.height}

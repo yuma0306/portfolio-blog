@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='ja'>
+    <html lang='ja' className=''>
       <body className={`${notojp.className} text-[#333] text-[16px] tracking-wide leading-7`}>{children}</body>
     </html>
   )

@@ -19,7 +19,7 @@ export default async function Works() {
     <Section sectionID='works'>
       <Inner>
         <HeadingLv2>Works</HeadingLv2>
-        <Text align='sm:text-center'>
+        <Text addClass='sm:text-center'>
           自主制作したポートフォリオを紹介しています。<br/>
           各ポートフォリオの<span className='marker font-bold'>仕様・使用技術については、詳細ページに記載</span>しております。
         </Text>

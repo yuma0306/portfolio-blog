@@ -19,7 +19,7 @@ export default async function Skills() {
       <Section sectionID='skills' addClass='bg-gray-50'>
         <Inner>
           <HeadingLv2>Skills</HeadingLv2>
-          <Text align='sm:text-center'>
+          <Text addClass='sm:text-center'>
             フロントエンドのみならず、バックエンドやLinuxなどのインフラ部分まで幅広くスキルの幅を広げております。<br/>
             対応可能な具体例とあわせてスキルセットをまとめました。
           </Text>
