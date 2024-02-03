@@ -11,8 +11,8 @@ const notojp = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: 'タイトル',
-  description: 'ディスクリプション',
+  title: 'Uma Code',
+  description: '自主制作したポートフォリオを紹介しています。 | Uma Code',
   robots: {
     index: false,
   }
