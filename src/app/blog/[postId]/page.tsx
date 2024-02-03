@@ -1,8 +1,13 @@
 // import parse from 'html-react-parser';
 // {parse(post.content)}
 
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getDetail, getList } from '@/libs/microcms';
+import Wrapper from '@/app/components/Wrapper';
+import Header from '@/app/components/Header';
+import Inner from '@/app/components/Inner';
+import Footer from '@/app/components/Footer';
 
 // キャッシュを利用しない
 export const revalidate = 0;
@@ -23,22 +28,92 @@ export default async function StaticDetailPage({
   params: { postId: string };
 }) {
   const post = await getDetail(postId);
+
+  // console.log(post);
+  // ▼下記でカスタムフィールドにアクセス可能（型定義すれば使える）
+  // console.log(post.skillTags.map(tag => tag.skillTagField.skillTerm));
+
   // ページの生成された時間を取得
-  const time = new Date().toLocaleString();
   if (!post) {
     notFound();
   }
   return (
-    <div className='note'>
-      <h1>{post.title}</h1>
-      <div
-        className='
-          [&>h2]:p-4 [&>h2]:relative
-          [&>h3]:relative [&>h3]:p-2 [&>h3]:text-cyan-600
-        '
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      >
-      </div>
-    </div>
+    <>
+      <Wrapper>
+        <Header />
+          <div className='note02 px-5 pb-[33px]'>
+            <Inner addClass='max-w-5xl'>
+              <h1 className='relative py-[2rem] text-[2rem] font-medium text-center before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-[#333]'>{post.title}</h1>
+              <time className='block pr-[1rem] text-right'>更新日：{post.updatedAt.split('T')[0]}</time>
+              <Image
+                className='w-[600px] max-w-full h-[12rem] sm:h-[18rem] lg:h-[22rem] mx-auto mt-[2rem] object-cover shadow-round rounded'
+                alt={post.title}
+                src={post.eyecatch!.url}
+                height={post.eyecatch!.height}
+                width={post.eyecatch!.width}
+              />
+              {/* <div>{post.label}</div> */}
+              <div className='blog-content' dangerouslySetInnerHTML={{ __html: post.content }}></div>
+            </Inner>
+          </div>
+        <Footer />
+      </Wrapper>
+    </>
   );
 }
+
+// {
+//   "id": "9xfe-6m5wly",
+//   "createdAt": "2024-01-27T06:48:26.769Z",
+//   "updatedAt": "2024-01-28T12:56:56.252Z",
+//   "publishedAt": "2024-01-27T06:48:26.769Z",
+//   "revisedAt": "2024-01-28T12:56:56.252Z",
+//   "title": "【本サイト】Uma Code",
+//   "content": "<ul><li>next.js14（App router）</li><li>MicroCMS</li></ul><h2 id=\"hf860dce3e6\">H2見出し</h2><p>pタグpタグpタグpタグ</p><h3 id=\"hb2a2025c0e\">h3見出し</h3><ul><li>リスト</li><li>リスト</li></ul>",
+//   "eyecatch": {
+//       "url": "https://images.microcms-assets.io/assets/a2ab7e6cdf29426289d6e9e696759783/5f32079526b44ee7a704902cd8838dc6/uma-code.png",
+//       "height": 662,
+//       "width": 1468
+//   },
+//   "category": {
+//       "id": "front-end",
+//       "createdAt": "2024-01-26T00:50:23.710Z",
+//       "updatedAt": "2024-01-28T12:07:24.059Z",
+//       "publishedAt": "2024-01-26T00:50:23.710Z",
+//       "revisedAt": "2024-01-28T12:06:40.976Z",
+//       "name": "フロントエンド"
+//   },
+//   "label": "Next.js",
+//   "skillTags": [
+//       {
+//           "fieldId": "skillTagFieldID",
+//           "skillTagField": {
+//               "id": "wl7zx8-ts",
+//               "createdAt": "2024-01-28T11:23:47.849Z",
+//               "updatedAt": "2024-01-28T12:36:58.923Z",
+//               "publishedAt": "2024-01-28T11:23:47.849Z",
+//               "revisedAt": "2024-01-28T12:36:58.923Z",
+//               "skillTerm": "React・Next.js",
+//               "skillDesc": "コンポーネントを使った基本的なコーディングが可能。Next.jsのApp Routerを活用したコーディングも可能。",
+//               "skillType": {
+//                   "id": "front-end"
+//               }
+//           }
+//       },
+//       {
+//           "fieldId": "skillTagFieldID",
+//           "skillTagField": {
+//               "id": "s65ino8v6h5a",
+//               "createdAt": "2024-01-28T10:53:05.511Z",
+//               "updatedAt": "2024-01-28T12:36:13.742Z",
+//               "publishedAt": "2024-01-28T10:53:05.511Z",
+//               "revisedAt": "2024-01-28T12:36:13.742Z",
+//               "skillTerm": "MicroCMS",
+//               "skillDesc": "Next.jsなど各言語でAPI連携をすることが可能",
+//               "skillType": {
+//                   "id": "tool"
+//               }
+//           }
+//       }
+//   ]
+// }

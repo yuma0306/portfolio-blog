@@ -1,10 +1,11 @@
 type Props = {
   children: React.ReactNode;
+  addClass?: string;
 };
 
-export default function Wrapper({ children }: Props) {
+export default function Wrapper({ children, addClass }: Props) {
   return (
-    <div className="">
+    <div className={`grid pt-[65px] ${addClass || ''}`}>
       {children}
     </div>
   );

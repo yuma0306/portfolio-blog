@@ -1,12 +1,12 @@
 type Props = {
   children: React.ReactNode;
-  align?: string;
+  addClass?: string;
 };
 
-export default function Text({align, children}: Props) {
+export default function Text({addClass, children}: Props) {
   return (
     <>
-      <p className={`${align}`}>{children}</p>
+      <p className={`${addClass || ''}`} >{children}</p>
     </>
   )
 }

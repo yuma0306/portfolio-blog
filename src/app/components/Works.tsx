@@ -19,14 +19,13 @@ export default async function Works() {
     <Section sectionID='works'>
       <Inner>
         <HeadingLv2>Works</HeadingLv2>
-        <Text align='text-center'>
+        <Text addClass='sm:text-center'>
           自主制作したポートフォリオを紹介しています。<br/>
           各ポートフォリオの<span className='marker font-bold'>仕様・使用技術については、詳細ページに記載</span>しております。
         </Text>
-        <ul className='grid grid-cols-3 gap-6 mt-14'>
-          {contents.map((post) => {
-            // console.log(contents);
-            return (
+        <ul className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14'>
+          {contents.map((post) =>
+            post.frontFlag && (
               <li key={post.id} className='relative group'>
                 <Link className='grid gap-y-3' href={`/blog/${post.id}`}>
                   <div className='shadow-round w-full aspect-video rounded overflow-hidden'>
@@ -42,8 +41,8 @@ export default async function Works() {
                   <p className='absolute top-0 left-0 px-2 py-1 text-[14px] text-white bg-[#333] rounded-br leading-0'>{post.label}</p>
                 </Link>
               </li>
-            );
-          })}
+            )
+          )}
         </ul>
         <LinkBtn href='/blog/'>ポートフォリオ一覧</LinkBtn>
       </Inner>

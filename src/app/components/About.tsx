@@ -32,19 +32,22 @@ export default function About() {
       <Section sectionID='about' addClass='bg-gray-50'>
         <Inner>
           <HeadingLv2>About Me</HeadingLv2>
-          <div className='flex items-center w-fit mx-auto	gap-10'>
+          <div className='flex items-center flex-col md:flex-row gap-x-10 gap-y-5 mx-auto'>
             <Image
-              className='w-1/4 shadow-round rounded'
+              className='w-fit max-w-full mx-auto shadow-round rounded'
               src={'/img-about.jpg'}
               alt={'プロフィールアイコン'}
               height={300}
               width={300}
             />
             <div className='flex-1'>
-              <Text align='text-left'>
+              <Text addClass='text-left'>
                 2020年にフロントエンドエンジニアとしてキャリアをスタート。<br/>
                 Web制作を通じて、コーディング・解析・SEOなどWeb周りの基礎を身につけ、現在ではバックエンド・インフラ関連の業務まで幅広く担当するようになりました。<br/>
-                好きなことは「動物園・水族館・牧場巡り」「生き物採取」「釣り」「エアプランツ」「温泉・サウナ」「AlexaとSwitchBotを使った部屋の魔改造」など。
+              </Text>
+              <Text addClass='text-left mt-4'>
+                好きなことは「動物園・水族館・牧場巡り」「生き物採取」「釣り」「エアプランツ」「温泉・サウナ」「AlexaとSwitchBotを使った部屋の魔改造」など。<br/>
+                スタバでMacよりコメダでMac派。
               </Text>
               <div className='flex gap-10 mt-8'>
                 <Social

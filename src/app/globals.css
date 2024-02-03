@@ -2,25 +2,196 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --white01: #fff;
+  --black01: #333;
+  --gray01: #e5e7eb;
+  --primary01: #0891b2;
+  --primary02: #155e75;
+  --primary03: #eff6ff;
+  --yellow01: #FFE600;
+  --yellow02: #fef9e5;
+  --shadowBlack01: rgba(0,0,0,.2);
+}
+
 @layer components {
+  .grid-temp-row3 {
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+  }
   .note {
-    background-color: #fff;
-    background-image: linear-gradient(180deg, #e5e7eb 1px, transparent 1px);
+    background-color: var(--white01);
+    background-image: linear-gradient(180deg, var(--gray01) 1px, transparent 1px);
     background-size: 100% 2.5rem;
     line-height: 2.5rem;
     font-size: 1rem;
   }
   .note02 {
-    background-color: #fff;
-    background-image: linear-gradient(180deg, #e5e7eb 1px, transparent 1px);
+    padding-bottom: 1px;
+    background-color: var(--white01);
+    background-image: linear-gradient(180deg, var(--gray01) 1px, transparent 1px);
     background-size: 100% 2rem;
     line-height: 2rem;
     font-size: 1rem;
   }
   .shadow-round {
-    box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
+    box-shadow: 0 0 5px 1px var(--shadowBlack01);
   }
   .marker {
-    background: linear-gradient(transparent 70%, #FFE600 70%);
+    background: linear-gradient(transparent 70%, var(--yellow01) 70%);
+  }
+  /* .blog-content */
+  .blog-content h2 {
+    position: relative;
+    padding: 2rem 1rem;
+		font-weight: 500;
+    font-size: 1.6rem;
+  }
+  .blog-content h2::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary01);
+    content: "";
+  }
+  .blog-content h2::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 15%;
+    height: 5px;
+    background-color: var(--primary02);
+    content: "";
+    z-index: 1;
+  }
+  .blog-content h3 {
+    position: relative;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: var(--primary01);
+    color: var(--white01);
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  .blog-content h3::before {
+    position: absolute;
+    left: 2rem;
+    bottom: 1px;
+    background-color: var(--primary01);
+    width: 2rem;
+    height: 1rem;
+    clip-path: polygon(0 0, 100% 0%, 50% 100%);
+    transform: translateY(100%);
+    content: "";
+  }
+  .blog-content h4 {
+    position: relative;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .blog-content h4::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary02);
+    width: 100%;
+    height: 1px;
+    content: "";
+  }
+  .blog-content h4::after {
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    background-color: var(--primary02);
+    width: 100%;
+    height: 1px;
+    content: "";
+  }
+  .blog-content ul {
+    margin-top: 2rem;
+    padding-left: 1rem;
+  }
+  .blog-content ul li {
+    position: relative;
+    padding-left: 1rem;
+  }
+  .blog-content ul li::before {
+    position: absolute;
+    top: .75rem;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary02);
+    border-radius: 50%;
+    content: "";
+  }
+  .blog-content ol {
+    margin-top: 2rem;
+    padding-left: 1rem;
+    counter-reset: number 0;
+  }
+  .blog-content ol li {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .blog-content ol li::before {
+    display: grid;
+    place-content: center;
+    position: absolute;
+    top: .25rem;
+    left: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--primary02);
+    color: var(--white01);
+    font-weight: 700;
+    counter-increment: number 1;
+    content: counter(number);
+  }
+  .blog-content p {
+    margin-top: 2rem;
+  }
+  .blog-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .blog-content a {
+    color: var(--primary01);
+    text-decoration: underline;
+    transition: opacity .3s;
+  }
+  .blog-content a:hover {
+    opacity: .8;
+  }
+  .blog-content .box {
+    padding: 2rem;
+    background-color: var(--yellow02);
+    border-radius: 4px;
+  }
+  .blog-content figure {
+    width: min(100%, 350px);
+    height: 12rem;
+    margin: 2rem auto 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  @media (min-width: 640px) {
+    .blog-content figure {
+      width: min(100%, 500px);
+      height: 18rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .blog-content figure {
+      width: min(100%, 600px);
+      height: 22rem;
+    }
   }
 }
