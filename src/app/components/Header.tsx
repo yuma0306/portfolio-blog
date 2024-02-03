@@ -3,15 +3,16 @@ import { useState, useEffect } from 'react';
 import { Link as ScrollLink} from 'react-scroll';
 import Link from 'next/link';
 import Inner from '@/app/components/Inner';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const media: number = 640;
   const headerHeight: number = 65;
   const scrollDuration: number = 400;
+  // 現在のURLを取得
+  const pathName = usePathname();
   // ハンバーガー用useStateを定義
   const [isOpen, setOpen] = useState<boolean>(false);
-  // トップページかどうか
-  const [isTopPage, setIsTopPage] = useState<boolean>(true);
   // booleanをトグルで書き換え
   const burgerToggle = () => {
     setOpen(!isOpen);
@@ -35,34 +36,44 @@ export default function Header() {
           <span className='text-cyan-600 font-bold text-2xl'>Uma Code</span>
         </Link>
         <div className='hidden sm:flex sm:gap-5 text-lg leading-none'>
-          <ScrollLink
-            to='about'
-            smooth={true}
-            duration={scrollDuration}
-            offset={-headerHeight}
-            href='/'
-            className='transition duration-300 hover:text-cyan-600 cursor-pointer'
-          >
-            About
-          </ScrollLink>
-          <ScrollLink
-            to='works'
-            smooth={true}
-            duration={scrollDuration}
-            offset={-headerHeight}
-            className='transition duration-300 hover:text-cyan-600 cursor-pointer'
-          >
-            Works
-          </ScrollLink>
-          <ScrollLink
-            to='skills'
-            smooth={true}
-            duration={scrollDuration}
-            offset={-headerHeight}
-            className='transition duration-300 hover:text-cyan-600 cursor-pointer'
-          >
-            Skills
-          </ScrollLink>
+          {pathName === '/' ? (
+            <>
+              <ScrollLink
+                to='about'
+                smooth={true}
+                duration={scrollDuration}
+                offset={-headerHeight}
+                href='/'
+                className='transition duration-300 hover:text-cyan-600 cursor-pointer'
+              >
+                About
+              </ScrollLink>
+              <ScrollLink
+                to='works'
+                smooth={true}
+                duration={scrollDuration}
+                offset={-headerHeight}
+                className='transition duration-300 hover:text-cyan-600 cursor-pointer'
+              >
+                Works
+              </ScrollLink>
+              <ScrollLink
+                to='skills'
+                smooth={true}
+                duration={scrollDuration}
+                offset={-headerHeight}
+                className='transition duration-300 hover:text-cyan-600 cursor-pointer'
+              >
+                Skills
+              </ScrollLink>
+            </>
+          ) : (
+            <>
+              <Link className='transition duration-300 hover:text-cyan-600' href='/#about'>About</Link>
+              <Link className='transition duration-300 hover:text-cyan-600' href='/#works'>Works</Link>
+              <Link className='transition duration-300 hover:text-cyan-600' href='/#skills'>Skills</Link>
+            </>
+          )}
           <Link className='transition duration-300 hover:text-cyan-600' href='https://github.com/yuma0306' target='_blank'>GitHub</Link>
           <Link className='transition duration-300 hover:text-cyan-600' href='https://zenn.dev/holy0306' target='_blank'>Zenn</Link>
         </div>
@@ -79,36 +90,46 @@ export default function Header() {
       </Inner>
       <div className={isOpen ? 'visible opacity-100 relative transition duration-300' : 'invisible opacity-0 absolute transition duration-300'}>
         <div className='grid items-center justify-center gap-4 p-5'>
-          <ScrollLink
-            to='about'
-            smooth={true}
-            duration={scrollDuration}
-            offset={-headerHeight}
-            className='transition duration-300 hover:text-cyan-600 cursor-pointer'
-            onClick={burgerToggle}
-          >
-            About
-          </ScrollLink>
-          <ScrollLink
-            to='works'
-            smooth={true}
-            duration={scrollDuration}
-            offset={-headerHeight}
-            className='transition duration-300 hover:text-cyan-600 cursor-pointer'
-            onClick={burgerToggle}
-          >
-            Works
-          </ScrollLink>
-          <ScrollLink
-            to='skills'
-            smooth={true}
-            duration={scrollDuration}
-            offset={-headerHeight}
-            className='transition duration-300 hover:text-cyan-600 cursor-pointer'
-            onClick={burgerToggle}
-          >
-            Skills
-          </ScrollLink>
+        {pathName === '/' ? (
+          <>
+            <ScrollLink
+              to='about'
+              smooth={true}
+              duration={scrollDuration}
+              offset={-headerHeight}
+              className='transition duration-300 hover:text-cyan-600 cursor-pointer'
+              onClick={burgerToggle}
+            >
+              About
+            </ScrollLink>
+            <ScrollLink
+              to='works'
+              smooth={true}
+              duration={scrollDuration}
+              offset={-headerHeight}
+              className='transition duration-300 hover:text-cyan-600 cursor-pointer'
+              onClick={burgerToggle}
+            >
+              Works
+            </ScrollLink>
+            <ScrollLink
+              to='skills'
+              smooth={true}
+              duration={scrollDuration}
+              offset={-headerHeight}
+              className='transition duration-300 hover:text-cyan-600 cursor-pointer'
+              onClick={burgerToggle}
+            >
+              Skills
+            </ScrollLink>
+          </>
+        ) : (
+          <>
+            <Link className='transition duration-300 hover:text-cyan-600' href='/#about' onClick={burgerToggle}>About</Link>
+            <Link className='transition duration-300 hover:text-cyan-600' href='/#works' onClick={burgerToggle}>Works</Link>
+            <Link className='transition duration-300 hover:text-cyan-600' href='/#skills' onClick={burgerToggle}>Skills</Link>
+          </>
+        )}
           <Link className='transition duration-300 hover:text-cyan-600' href='https://github.com/yuma0306' target='_blank' onClick={burgerToggle}>GitHub</Link>
           <Link className='transition duration-300 hover:text-cyan-600' href='https://zenn.dev/holy0306' target='_blank' onClick={burgerToggle}>Zenn</Link>
         </div>
