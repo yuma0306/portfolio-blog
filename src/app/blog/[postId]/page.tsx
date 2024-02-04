@@ -29,11 +29,6 @@ export default async function StaticDetailPage({
 }) {
   const post = await getDetail(postId);
 
-  // console.log(post);
-  // ▼下記でカスタムフィールドにアクセス可能（型定義すれば使える）
-  // console.log(post.skillTags.map(tag => tag.skillTagField.skillTerm));
-
-  // ページの生成された時間を取得
   if (!post) {
     notFound();
   }
@@ -44,7 +39,7 @@ export default async function StaticDetailPage({
           <div className='note02 px-5 pb-[33px]'>
             <Inner addClass='max-w-5xl'>
               <h1 className='relative py-[2rem] text-[2rem] font-medium text-center before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-[#333]'>{post.title}</h1>
-              <time className='block pr-[1rem] text-right'>更新日：{post.updatedAt.split('T')[0]}</time>
+              <time className='block'>更新日：{post.updatedAt.split('T')[0]}</time>
               <Image
                 className='w-[600px] max-w-full h-[12rem] sm:h-[18rem] lg:h-[22rem] mx-auto mt-[2rem] object-cover shadow-round rounded'
                 alt={post.title}
@@ -52,7 +47,13 @@ export default async function StaticDetailPage({
                 height={post.eyecatch!.height}
                 width={post.eyecatch!.width}
               />
-              {/* <div>{post.label}</div> */}
+              {post.skillTags.some(tag => tag.skillTagField && tag.skillTagField.skillTerm) && (
+                <ul className='flex flex-wrap gap-x-4 mt-8'>
+                  {post.skillTags.map((tag) =>
+                    <li className='relative h-8 pl-[28px] pr-[8px] rounded-tl-2xl rounded-bl-2xl text-[14px] text-white bg-[#333] leading-0 before:absolute before:top-[50%] before:left-[8px] before:translate-y-[-50%]	before:rounded-full before:bg-white before:w-3.5 before:h-3.5' key={tag.skillTagField.id}>{tag.skillTagField.skillTerm}</li>
+                  )}
+                </ul>
+              )}
               <div className='blog-content' dangerouslySetInnerHTML={{ __html: post.content }}></div>
             </Inner>
           </div>

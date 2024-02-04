@@ -40,8 +40,26 @@ export type Blog = {
   content: string;
   eyecatch?: MicroCMSImage;
   label: string;
+  skillTags: SkillTag[];
   frontFlag: boolean;
 } & MicroCMSDate;
+
+
+export type SkillTag = {
+  fieldId: string;
+  skillTagField: {
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    revisedAt: string;
+    skillTerm: string;
+    skillDesc: string;
+    skillType: {
+      id: string;
+    };
+  };
+};
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error('MICROCMS_SERVICE_DOMAIN is required');
@@ -86,6 +104,5 @@ export const getDetail = async (
     contentId,
     queries,
   });
-  //  await new Promise((resolve) => setTimeout(resolve, 3000));
   return detailData;
 };

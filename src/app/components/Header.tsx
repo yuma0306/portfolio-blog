@@ -78,14 +78,14 @@ export default function Header() {
           <Link className='transition duration-300 hover:text-cyan-600' href='https://zenn.dev/holy0306' target='_blank'>Zenn</Link>
         </div>
         <div className='sm:hidden cursor-pointer' onClick={burgerToggle}>
-          <svg className={isOpen ? 'hidden' : 'h-8 w-8 text-cyan-600'} fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+          {/* <svg className={isOpen ? 'hidden' : 'h-8 w-8 text-cyan-600'} fill='none' viewBox='0 0 24 24' stroke='currentColor'>
             <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6h16M4 12h16M4 18h16'/>
           </svg>
           <svg className={isOpen ? 'h-8 w-8 text-cyan-600' : 'hidden'} width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>
             <path stroke='none' d='M0 0h24v24H0z'/>
             <line x1='18' y1='6' x2='6' y2='18' />
             <line x1='6' y1='6' x2='18' y2='18' />
-          </svg>
+          </svg> */}
         </div>
       </Inner>
       <div className={isOpen ? 'visible opacity-100 relative transition duration-300' : 'invisible opacity-0 absolute transition duration-300'}>
