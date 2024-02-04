@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { getList } from '@/libs/microcms';
 import Section from '@/app/components/Section';
 import Inner from '@/app/components/Inner';
 import HeadingLv2 from '@/app/components/HeadingLv2';
 import LinkBtn from '@/app/components/LInkBtn';
 import Text from '@/app/components/Text';
-import { getList } from '@/libs/microcms';
 
 // キャッシュを利用しない
 export const revalidate = 0;
