@@ -48,9 +48,9 @@ export default async function StaticDetailPage({
                 width={post.eyecatch!.width}
               />
               {post.skillTags.some(tag => tag.skillTagField && tag.skillTagField.skillTerm) && (
-                <ul className='flex flex-wrap gap-x-4 mt-8'>
+                <ul className='flex overflow-x-auto gap-x-4 mt-8'>
                   {post.skillTags.map((tag) =>
-                    <li className='relative h-8 pl-[28px] pr-[8px] rounded-tl-2xl rounded-bl-2xl text-[14px] text-white bg-[#333] leading-0 before:absolute before:top-[50%] before:left-[8px] before:translate-y-[-50%]	before:rounded-full before:bg-white before:w-3.5 before:h-3.5' key={tag.skillTagField.id}>{tag.skillTagField.skillTerm}</li>
+                    <li className='flex-none relative h-8 pl-[28px] pr-[8px] rounded-tl-2xl rounded-bl-2xl text-[14px] text-white bg-[#333] leading-0 before:absolute before:top-[50%] before:left-[8px] before:translate-y-[-50%]	before:rounded-full before:bg-white before:w-3.5 before:h-3.5' key={tag.skillTagField.id}>{tag.skillTagField.skillTerm}</li>
                   )}
                 </ul>
               )}
