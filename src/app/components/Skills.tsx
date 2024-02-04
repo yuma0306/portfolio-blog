@@ -10,7 +10,6 @@ export const revalidate = 0;
 export default async function Skills() {
   // 上限は100
   const { contents } = await getSkillList({ limit: 100 });
-  // console.log(contents);
   if (!contents || contents.length === 0) {
     return;
   }
@@ -89,26 +88,6 @@ export default async function Skills() {
                 </dd>
               </dl>
             )}
-            {
-              /*
-                ▼カテゴリでの分類
-                {contents.some(post => post.skillCategory.includes('front-end')) && (
-                  <dl className='relative note02 bg-white border-[3px] border-[#CD669A] rounded'>
-                    <dt className='absolute top-0 left-1/2 translate-y-[-50%] translate-x-[-50%] px-3 py-1.5 text-2xl text-center text-white bg-[#CD669A] rounded leading-0'>Front End</dt>
-                    <dd className='grid gap-y-[2rem] p-[2rem]'>
-                      {contents.map((post) =>
-                        post.skillCategory.includes('front-end') && (
-                          <dl key={post.id}>
-                            <dt className='text-[18px] font-bold'>{post.skillTerm}</dt>
-                            <dd>{post.skillDesc}</dd>
-                          </dl>
-                        )
-                      )}
-                    </dd>
-                  </dl>
-                )}
-              */
-            }
           </div>
         </Inner>
       </Section>

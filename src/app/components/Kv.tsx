@@ -1,7 +1,4 @@
-import Link from 'next/link';
 import Image from "next/image";
-import Inner from '@/app/components/Inner';
-import Text from '@/app/components/Text';
 
 export default function Kv() {
   return (
