@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ja' className=''>
-      <body className={`${notojp.className} text-[#333] text-[16px] tracking-wide leading-7`}>{children}</body>
+      <body className={`${notojp.className} text-[#333] text-[16px] tracking-wide leading-7 break-words`}>{children}</body>
     </html>
   )
 }
