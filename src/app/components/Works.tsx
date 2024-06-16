@@ -21,7 +21,7 @@ export default async function Works() {
         <HeadingLv2>Works</HeadingLv2>
         <Text addClass='sm:text-center'>
           自主制作したポートフォリオを紹介しています。<br/>
-          各ポートフォリオの<span className='marker font-bold'>仕様・使用技術については、詳細ページに記載</span>しております。
+          各ポートフォリオの<span className='marker font-bold'>URL・仕様・使用技術については、詳細ページに記載</span>しております。
         </Text>
         <ul className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14'>
           {contents.map((post) =>
