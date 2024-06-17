@@ -36,7 +36,7 @@ export default async function StaticDetailPage({
     <>
       <Wrapper>
         <Header />
-          <div className='note02 px-5 pb-[33px]'>
+          <div className='note02 px-5 pb-[33px] overflow-x-hidden'>
             <Inner addClass='max-w-5xl'>
               <h1 className='relative py-[2rem] text-[2rem] font-medium text-center before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 before:bg-[#333]'>{post.title}</h1>
               <time className='block'>更新日：{post.updatedAt.split('T')[0]}</time>
@@ -48,11 +48,13 @@ export default async function StaticDetailPage({
                 width={post.eyecatch!.width}
               />
               {post.skillTags.some(tag => tag.skillTagField && tag.skillTagField.skillTerm) && (
-                <ul className='flex overflow-x-auto gap-x-4 mt-8'>
-                  {post.skillTags.map((tag) =>
-                    <li className='flex-none relative h-8 pl-[28px] pr-[8px] rounded-tl-2xl rounded-bl-2xl text-[14px] text-white bg-[#333] leading-0 before:absolute before:top-[50%] before:left-[8px] before:translate-y-[-50%]	before:rounded-full before:bg-white before:w-3.5 before:h-3.5' key={tag.skillTagField.id}>{tag.skillTagField.skillTerm}</li>
-                  )}
-                </ul>
+                <div className='overflow-x-auto whitespace-nowrap	mt-8'>
+                  <ul className='flex gap-4'>
+                    {post.skillTags.map((tag) =>
+                      <li className='relative h-8 pl-[28px] pr-[8px] rounded-tl-2xl rounded-bl-2xl text-[14px] text-white bg-[#333] leading-0 before:absolute before:top-[50%] before:left-[8px] before:translate-y-[-50%]	before:rounded-full before:bg-white before:w-3.5 before:h-3.5' key={tag.skillTagField.id}>{tag.skillTagField.skillTerm}</li>
+                    )}
+                  </ul>
+                </div>
               )}
               <div className='blog-content' dangerouslySetInnerHTML={{ __html: post.content }}></div>
             </Inner>
