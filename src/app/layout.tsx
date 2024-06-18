@@ -1,8 +1,6 @@
-import type { Metadata } from 'next'
-// import { Inter } from 'next/font/google'
-import './globals.css'
-
-import { Noto_Sans_JP } from 'next/font/google'
+import type { Metadata } from 'next';
+import { Noto_Sans_JP } from 'next/font/google';
+import './globals.css';
 
 const notojp = Noto_Sans_JP({
   weight: ['400', '500', '700'],
@@ -19,11 +17,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Uma Code',
     description: '自主制作したポートフォリオを紹介しています。 | Uma Code',
-    url: `${process.env.VERCEL_URL ?? 'http://localhost:3000'}`,
+    url: 'https://portfolio-blog-two-mu.vercel.app',
     siteName: 'Uma Code',
     images: [
       {
-        url: `${process.env.VERCEL_URL ?? 'http://localhost:3000'}/ogp.png`,
+        url: 'https://portfolio-blog-two-mu.vercel.app/ogp.png',
         width: 1200,
         height: 630,
         alt: 'OGP画像',
@@ -40,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='ja' className=''>
+    <html lang='ja'>
       <body className={`${notojp.className} text-[#333] text-[16px] tracking-wide leading-7 break-words`}>{children}</body>
     </html>
   )

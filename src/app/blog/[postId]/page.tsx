@@ -1,6 +1,3 @@
-// import parse from 'html-react-parser';
-// {parse(post.content)}
-
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getDetail, getList } from '@/libs/microcms';
@@ -64,59 +61,3 @@ export default async function StaticDetailPage({
     </>
   );
 }
-
-// {
-//   "id": "9xfe-6m5wly",
-//   "createdAt": "2024-01-27T06:48:26.769Z",
-//   "updatedAt": "2024-01-28T12:56:56.252Z",
-//   "publishedAt": "2024-01-27T06:48:26.769Z",
-//   "revisedAt": "2024-01-28T12:56:56.252Z",
-//   "title": "【本サイト】Uma Code",
-//   "content": "<ul><li>next.js14（App router）</li><li>MicroCMS</li></ul><h2 id=\"hf860dce3e6\">H2見出し</h2><p>pタグpタグpタグpタグ</p><h3 id=\"hb2a2025c0e\">h3見出し</h3><ul><li>リスト</li><li>リスト</li></ul>",
-//   "eyecatch": {
-//       "url": "https://images.microcms-assets.io/assets/a2ab7e6cdf29426289d6e9e696759783/5f32079526b44ee7a704902cd8838dc6/uma-code.png",
-//       "height": 662,
-//       "width": 1468
-//   },
-//   "category": {
-//       "id": "front-end",
-//       "createdAt": "2024-01-26T00:50:23.710Z",
-//       "updatedAt": "2024-01-28T12:07:24.059Z",
-//       "publishedAt": "2024-01-26T00:50:23.710Z",
-//       "revisedAt": "2024-01-28T12:06:40.976Z",
-//       "name": "フロントエンド"
-//   },
-//   "label": "Next.js",
-//   "skillTags": [
-//       {
-//           "fieldId": "skillTagFieldID",
-//           "skillTagField": {
-//               "id": "wl7zx8-ts",
-//               "createdAt": "2024-01-28T11:23:47.849Z",
-//               "updatedAt": "2024-01-28T12:36:58.923Z",
-//               "publishedAt": "2024-01-28T11:23:47.849Z",
-//               "revisedAt": "2024-01-28T12:36:58.923Z",
-//               "skillTerm": "React・Next.js",
-//               "skillDesc": "コンポーネントを使った基本的なコーディングが可能。Next.jsのApp Routerを活用したコーディングも可能。",
-//               "skillType": {
-//                   "id": "front-end"
-//               }
-//           }
-//       },
-//       {
-//           "fieldId": "skillTagFieldID",
-//           "skillTagField": {
-//               "id": "s65ino8v6h5a",
-//               "createdAt": "2024-01-28T10:53:05.511Z",
-//               "updatedAt": "2024-01-28T12:36:13.742Z",
-//               "publishedAt": "2024-01-28T10:53:05.511Z",
-//               "revisedAt": "2024-01-28T12:36:13.742Z",
-//               "skillTerm": "MicroCMS",
-//               "skillDesc": "Next.jsなど各言語でAPI連携をすることが可能",
-//               "skillType": {
-//                   "id": "tool"
-//               }
-//           }
-//       }
-//   ]
-// }
